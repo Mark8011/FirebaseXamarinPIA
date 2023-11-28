@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:viewmodels="clr-namespace:FirebaseDemo.ViewModels"
+             xmlns:models="clr-namespace:FirebaseDemo.Models"
+             x:DataType="viewmodels:EmployeeListPageViewModel"
+             Title="Productos Registrados"
+             x:Class="FirebaseDemo.Views.EmployeeList"
+             BackgroundColor="#011932">
+    <ContentPage.Content>
+        <StackLayout Margin="10,30,10,0">
+            <ActivityIndicator IsVisible="{Binding IsBusy}" IsRunning="True" />
+
+            <RefreshView Command="{Binding RefreshCommand}" IsRefreshing="{Binding IsRefreshing}" >
+                <CollectionView ItemsSource="{Binding Employees}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:ProductoModel">
+                            <StackLayout Margin="10,5,10,0">
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="NombreProducto: " TextColor="#fff" FontSize="20"/>
+                                    <Label Text="{Binding NombreProducto}" TextColor="#fff" FontSize="20" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Marca: " TextColor="#fff" FontSize="20"/>
+                                    <Label Text="{Binding Marca}" TextColor="#fff" FontSize="20"/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Departamento: " TextColor="#fff" FontSize="20"/>
+                                    <Label Text="{Binding Departamento}" TextColor="#fff" FontSize="20" />
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Precio: " TextColor="#fff" FontSize="20"/>
+                                    <Label Text="{Binding Precio}" TextColor="#fff" FontSize="20"/>
+                                </StackLayout>
+                               
+                                <BoxView HeightRequest="2" Color="#fff" />
+
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewmodels:EmployeeListPageViewModel}},Path=SelectedEmployeeCommand}" CommandParameter="{Binding .}" />
+                                </StackLayout.GestureRecognizers>
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </RefreshView>
+           
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

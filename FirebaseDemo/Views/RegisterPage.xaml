@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Evidencia2EZS.Views.RegisterPage"
+    BackgroundColor="#011932">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="{OnPlatform iOS=25,Android=20}">
+            <Grid.RowDefinitions>
+                <!--1-->
+                <RowDefinition Height="Auto" />
+                <!--2-->
+                <RowDefinition Height="Auto" />
+                <!--3-->
+                <RowDefinition Height="Auto" />
+                <!--4-->
+                <RowDefinition Height="Auto" />
+                <!--5-->
+                <RowDefinition Height="Auto" />
+                <!--6-->
+                <RowDefinition Height="Auto" />
+                <!--7-->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+
+            <StackLayout Grid.Row="2" HorizontalOptions="Center" Orientation="Vertical"
+                Margin="0,0,0,10">
+
+                <StackLayout Margin="0,0,0,15" Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+                        <Label
+                                Text="Registro de usuario"
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center"
+                                VerticalTextAlignment="Center"
+                                HorizontalTextAlignment="Center"
+                                FontSize="30"
+                                Margin="0,0,4,0"
+                                TextColor="{OnPlatform Android=#fff}"
+                            />
+
+                    </StackLayout>
+
+
+            </StackLayout>
+
+            <StackLayout Grid.Row="3" HorizontalOptions="Center"
+                WidthRequest="{OnPlatform iOS=300, Android=300}" Orientation="Vertical">
+                <Label Text="Correo" FontSize="{OnPlatform Android=13}" TextColor="#fff" />
+                <Frame HasShadow="{OnPlatform Android=true, iOS=false}"
+                    Padding="{OnPlatform Android=6, iOS=0}" CornerRadius="{OnPlatform Android=7}">
+                    <Entry Placeholder="ejemplo@gmail.com" Keyboard="Email" MaxLength="25" TextColor="Black"
+                        FontSize="{OnPlatform Android=15, iOS=16}"
+                        Text="{Binding EmailTxt, Mode=TwoWay}" IsEnabled="{Binding IsEnabledTxt}" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="4" HorizontalOptions="Center" WidthRequest="300"
+                Orientation="Vertical">
+                <Label Text="Contraseña" FontSize="{OnPlatform Android=13}" TextColor="#fff" />
+                <Frame HasShadow="{OnPlatform Android=true, iOS=false}"
+                    Padding="{OnPlatform Android=6, iOS=0}" CornerRadius="{OnPlatform Android=7}">
+                    <Entry Placeholder="*************" MaxLength="25" IsPassword="True" TextColor="Black"
+                        FontSize="{OnPlatform Android=15, iOS=16}"
+                        Text="{Binding PasswordTxt, Mode=TwoWay}" IsEnabled="{Binding IsEnabledTxt}" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="5" HorizontalOptions="Center" WidthRequest="300"
+                Orientation="Vertical">
+                <Label Text="Nombre Completo" FontSize="{OnPlatform Android=13}" TextColor="#fff" />
+                <Frame HasShadow="{OnPlatform Android=true, iOS=false}"
+                    Padding="{OnPlatform Android=6, iOS=0}" CornerRadius="{OnPlatform Android=7}">
+                    <Entry Placeholder="Nombre Apellido" MaxLength="25" Keyboard="Text" TextColor="Black"
+                        FontSize="{OnPlatform Android=15, iOS=16}"
+                        Text="{Binding NameTxt, Mode=TwoWay}" IsEnabled="{Binding IsEnabledTxt}" />
+                </Frame>
+            </StackLayout>
+
+            <StackLayout Grid.Row="6" HorizontalOptions="Center">
+                <ActivityIndicator IsRunning="{Binding IsRunningTxt, Mode=TwoWay}"
+                    IsVisible="{Binding IsVisibleTxt, Mode=TwoWay}" Color="Black" />
+            </StackLayout>
+
+
+            <StackLayout Grid.Row="7" HorizontalOptions="Center" Orientation="Vertical">
+                <Button Text="Registrar"
+                    TextColor="#fff"
+                    FontSize="{OnPlatform Android=15}"
+                    BackgroundColor="#D4B425"
+                    WidthRequest="300"
+                    HeightRequest="50"
+                    Command="{Binding RegisterCommand}"
+                    IsEnabled="{Binding IsEnabledTxt, Mode=TwoWay}" 
+                    FontAttributes="Bold"
+                    CornerRadius="15"
+                    BorderColor="#fff"
+                    BorderWidth="1"/>
+
+
+                <Button Text="¿Ya tienes cuenta?"
+                    TextColor="#fff"
+                    FontSize="{OnPlatform Android=11, iOS=12}"
+                    BackgroundColor="Transparent"
+                    Clicked="NavToLogin_Clicked"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="Center" />
+            </StackLayout>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

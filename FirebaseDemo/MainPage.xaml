@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FirebaseDemo.MainPage"
+             Background="#011932">
+
+    <StackLayout>
+        
+        <Label Text="Gestion de productos" HorizontalTextAlignment="Center" TextColor="#fff" FontSize="36" Margin="0,50,0,50"/>
+        
+        
+        <Button Text="Agregar Producto" x:Name="addEmployee" Clicked="addEmployee_Clicked" />
+        <Button Text="Ver Productos" x:Name="showEmployee" Clicked="showEmployee_Clicked" />
+    </StackLayout>
+
+</ContentPage>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodels="clr-namespace:FirebaseDemo.ViewModels"
+             x:DataType="viewmodels:AddUpdateEmployeePageViewModel"
+             Title="Agregar/Modificar Producto"
+             x:Class="FirebaseDemo.Views.AddUpdateEmployee"
+             BackgroundColor="#011932">
+    <ContentPage.Content >
+        <StackLayout Margin="20">
+
+
+            <Entry Placeholder="Nombre Producto" PlaceholderColor="Gray" Text="{Binding EmployeeDetail.NombreProducto}" Background="#fff" Margin="10" TextColor="Black"/>
+            <Entry Placeholder="Marca" PlaceholderColor="Gray" Text="{Binding EmployeeDetail.Marca}" Background="#fff" Margin="10" TextColor="Black" />
+            <Entry Placeholder="Departamento" PlaceholderColor="Gray" Text="{Binding EmployeeDetail.Departamento}" Background="#fff" Margin="10" TextColor="Black" />
+            <Entry Placeholder="Precio" PlaceholderColor="Gray" Text="{Binding EmployeeDetail.Precio}"  Background="#fff" Margin="10" TextColor="Black" />
+
+            <Button Text="Guardar Cambios" 
+                    Command="{Binding SaveEmployeeCommand}" 
+                    Background="magenta" CornerRadius="20" 
+                    BorderColor="#fff"
+                    BorderWidth="1"
+                    />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
